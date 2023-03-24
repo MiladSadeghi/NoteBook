@@ -1,7 +1,12 @@
 import { Box } from "@mui/material";
 import React from "react";
+import Header from "./components/Header";
 function Home() {
-  return <Box>index</Box>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default Home;
