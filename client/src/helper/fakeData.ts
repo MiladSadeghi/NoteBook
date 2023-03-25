@@ -159,3 +159,105 @@ export const PopularPostedContent = [
     shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
   },
 ]
+
+export const HomeBodyContent = [
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions try to feel it",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+  {
+    category: "Travel",
+    title: "Design is the Mix of emotions",
+    author: {
+      name: "Jenny Kiaa",
+      icon: AuthorPhoto
+    },
+    createdAt: "02 December 2022",
+    readTime: "3",
+    shortDescription: "Did you come here for something in particular or just general Riker-bashing? And blowing into"
+  },
+]

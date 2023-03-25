@@ -13,11 +13,6 @@ function Header() {
   useEffect(() => {
     PopularPostRef.current.scrollLeft =
       PopularPostRef.current.scrollWidth * ((popularPostTab * 25) / 100);
-    // console.log(PopularPostRef.current.scrollLeft, `${popularPostTab * 25}%`);
-    console.log(
-      PopularPostRef.current.scrollLeft,
-      (PopularPostRef.current.scrollWidth * (popularPostTab * 25)) / 100
-    );
   }, [popularPostTab]);
 
   return (
