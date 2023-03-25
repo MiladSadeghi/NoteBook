@@ -19,8 +19,8 @@ function Header() {
     <Box component="div" mt={8} sx={{ backgroundColor: "#F2F8F7" }}>
       <Container maxWidth="xl">
         <Box py={10}>
-          <Grid container spacing={6}>
-            <Grid item xs={8}>
+          <Grid container spacing={5}>
+            <Grid item xs={8.8}>
               <Typography component="h3" variant="h3">
                 <Typography
                   component="span"
@@ -66,7 +66,7 @@ function Header() {
                 ))}
               </Grid>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3.2}>
               <Typography component="h3" variant="h3">
                 <Typography
                   component="span"

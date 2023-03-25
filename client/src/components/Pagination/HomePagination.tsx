@@ -40,6 +40,7 @@ function HomePagination() {
             },
           }}
           onClick={() => setPage(item)}
+          key={item}
         >
           {item}
         </Button>

@@ -7,10 +7,10 @@ function Main() {
   return (
     <Container maxWidth="xl">
       <Grid container spacing={6} mt={10}>
-        <Grid item xs={8}>
+        <Grid item xs={8.8}>
           <Body />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3.2}>
           <Aside />
         </Grid>
       </Grid>
