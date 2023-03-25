@@ -8,9 +8,7 @@ import { ImFacebook } from "react-icons/im";
 
 function Footer() {
   return (
-    <footer
-      style={{ background: "rgba(242, 248, 247, 1)", marginTop: "100px" }}
-    >
+    <footer style={{ background: "rgba(242, 248, 247, 1)" }}>
       <Container maxWidth="xl">
         <Grid container py={12}>
           <Grid item xs={3}>
