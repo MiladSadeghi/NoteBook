@@ -42,13 +42,7 @@ const theme = createTheme({
       fontWeight: "500"
     },
   },
-  palette: {
-    custom: {
-      main: "rgba(51, 51, 51, 1)",
-
-    }
-  },
-  direction: "rtl",
+  direction: "rtl"
 });
 
 export default theme;

@@ -9,6 +9,7 @@ import theme from "./helper/theme";
 import { CssBaseline } from "@mui/material";
 import "./styles/font.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_STRAPI_URL,
@@ -24,6 +25,7 @@ function App() {
             <CssBaseline />
             <Navbar />
             <Routes />
+            <Footer />
           </ThemeProvider>
         </Provider>
       </BrowserRouter>
