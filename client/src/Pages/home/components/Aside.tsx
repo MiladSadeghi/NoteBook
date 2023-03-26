@@ -182,7 +182,7 @@ function Aside() {
             </Typography>
             With Tags
           </Typography>
-          <Box display="flex" flexWrap="wrap">
+          <Box display="flex" flexWrap="wrap" gap="12px">
             {tags.map((tag: string) => (
               <Typography
                 component="h6"

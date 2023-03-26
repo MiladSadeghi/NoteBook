@@ -11,3 +11,8 @@ export type THeaderCard = {
   shortDescription: string;
   withImage: Boolean
 };
+
+export type TAccordion = {
+  title: string;
+  description: string;
+};
