@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "../Pages/home";
 import NotFound from "@/Pages/not found";
 import Faq from "@/Pages/faq";
+import Category from "@/Pages/categories/Category";
 
 function Routes() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function Routes() {
         <Route path="/" index element={<Home />} />
         <Route path="/404" index element={<NotFound />} />
         <Route path="/faq" index element={<Faq />} />
+        <Route path="/category" index element={<Category />} />
         <Route path="*" index element={<Navigate to="/404" />} />
       </RouterRoutes>
     </AnimatePresence>
