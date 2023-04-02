@@ -1,3 +1,3 @@
 export interface CustomPaletteColorOptions {
-  darkGray?: string
+  darkGray?: string;
 }

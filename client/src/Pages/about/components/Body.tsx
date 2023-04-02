@@ -1,10 +1,10 @@
-import { OurAuthors } from "@/helper/fakeData";
+import { TAuthors } from "@/types/author";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-function Body() {
+function Body({ authorsInformation }: { authorsInformation: TAuthors[] }) {
   return (
     <Box mt={9.5}>
       <Container maxWidth="xl">
@@ -29,13 +29,23 @@ function Body() {
           Our Authors
         </Typography>
         <Grid container spacing={5} mb={12.5}>
-          {OurAuthors.map((author: any) => (
-            <Grid item xs={6}>
-              <Box display="flex" mx="auto" justifyContent="center">
+          {authorsInformation.map((author: TAuthors, index: number) => (
+            <Grid item xs={6} key={index}>
+              <Box
+                display="flex"
+                mx="auto"
+                justifyContent="center"
+                width="380px"
+              >
                 <Box
+                  component="img"
                   width="150px"
                   height="150px"
-                  sx={{ background: "rgba(217, 217, 217, 1)" }}
+                  src={`${process.env.REACT_APP_BACKEND_ADDRESS}${author.attributes.avatar.data.attributes.url}`}
+                  sx={{
+                    background: "rgba(217, 217, 217, 1)",
+                    objectFit: "cover",
+                  }}
                 />
                 <Box
                   ml={2.5}
@@ -44,16 +54,17 @@ function Body() {
                   justifyContent="center"
                 >
                   <Typography component="h2" variant="h2" mb={1.5}>
-                    {author.name}
+                    {author.attributes.name}
                   </Typography>
                   <Typography component="h6" variant="h6" mb={2.5}>
-                    {author.postCount} Posts
+                    {author.attributes.articles?.data?.length} Posts
                   </Typography>
                   <Box
                     component={Link}
                     color="rgba(0, 170, 161, 1)"
                     display="flex"
                     alignItems="center"
+                    to={`/author/${author.attributes.slug}`}
                   >
                     See details about author{" "}
                     <HiOutlineArrowNarrowRight

@@ -10,6 +10,7 @@ import { CssBaseline } from "@mui/material";
 import "./styles/font.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+const LazyRoutes = React.lazy(() => import("@/App/Routes"));
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_STRAPI_URL,
@@ -22,10 +23,12 @@ function App() {
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Navbar />
-            <Routes />
-            <Footer />
+            <React.Suspense fallback={"loading..."}>
+              <CssBaseline />
+              <Navbar />
+              <LazyRoutes />
+              <Footer />
+            </React.Suspense>
           </ThemeProvider>
         </Provider>
       </BrowserRouter>

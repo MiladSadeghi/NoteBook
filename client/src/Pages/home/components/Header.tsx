@@ -91,17 +91,22 @@ function Header() {
                 overflow="hidden"
                 display="flex"
                 ref={PopularPostRef}
+                justifyContent="space-between"
                 sx={{
                   scrollBehavior: "smooth",
                 }}
               >
                 {PopularPostedContent.map((post: any, index: number) => (
-                  <Grid key={index} item xs={6} width="100%">
-                    <HeaderCard {...post} withImage={false} />
+                  <Grid key={index} item width="fit-content">
+                    <HeaderCard
+                      {...post}
+                      withImage={false}
+                      width="fit-content"
+                    />
                   </Grid>
                 ))}
               </Grid>
-              <Box display="flex" justifyContent="center" width="100%" mt={1}>
+              <Box display="flex" justifyContent="center" width="100%" mt={2}>
                 {[0, 1, 2, 3].map((tab: number) => (
                   <Box
                     height={6}

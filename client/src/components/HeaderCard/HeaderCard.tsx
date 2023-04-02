@@ -14,9 +14,16 @@ function HeaderCard({
   readTime,
   shortDescription,
   withImage,
-}: THeaderCard) {
+  width,
+}: THeaderCard & { width?: string }) {
+  console.log(width);
   return (
-    <Box component="div" display="flex" flexDirection="column" width={431}>
+    <Box
+      component="div"
+      display="flex"
+      flexDirection="column"
+      width={width ? width : 431}
+    >
       <Typography
         component="h6"
         variant="h6"

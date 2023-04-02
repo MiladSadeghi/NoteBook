@@ -4,17 +4,24 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { BsFacebook } from "react-icons/bs";
 import { GrPinterest } from "react-icons/gr";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
+import { TAuthor } from "@/types/author";
 
-function Header() {
+function Header({ ...authorInformation }: TAuthor) {
+  const { name, avatar, description, quote, quoteDescription } =
+    authorInformation;
+
   return (
     <Box pt={18} pb={10} sx={{ background: "rgba(242, 248, 247, 1)" }}>
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={5}>
             <Box
+              component="img"
+              src={`${process.env.REACT_APP_BACKEND_ADDRESS}${avatar.data.attributes.url}`}
+              alt={String(avatar.data.attributes.name)}
               width="100%"
-              height="515px"
-              sx={{ background: "rgba(217, 217, 217, 1)" }}
+              maxHeight={515}
+              sx={{ objectFit: "contain" }}
             />
           </Grid>
           <Grid item xs={7}>
@@ -25,7 +32,7 @@ function Header() {
               lineHeight="33.6px"
               color="rgba(34, 34, 34, 1)"
             >
-              Hi! {AuthorDetail.name}
+              Hi! {name}
             </Typography>
             <Typography
               component="p"
@@ -34,7 +41,7 @@ function Header() {
               width="78%"
               mb={3}
             >
-              {AuthorDetail.description}
+              {description}
             </Typography>
             <Typography
               component="h5"
@@ -42,7 +49,7 @@ function Header() {
               color="rgba(34, 34, 34, 1)"
               mb={2}
             >
-              {AuthorDetail.quote}
+              {quote}
             </Typography>
             <Typography
               component="p"
@@ -52,7 +59,7 @@ function Header() {
               width="78%"
               mb={5}
             >
-              {AuthorDetail.quoteDescription}
+              {quoteDescription}
             </Typography>
             <Typography component="h6" fontSize="17px" fontWeight={600} mb={4}>
               Follow On Social Media:

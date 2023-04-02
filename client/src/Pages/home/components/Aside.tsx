@@ -10,6 +10,7 @@ function Aside() {
     { category: "Food", count: "09" },
     { category: "Healthcare", count: "10" },
     { category: "Technology", count: "03" },
+    { category: "Nature", count: "05" },
   ];
 
   const tags = [

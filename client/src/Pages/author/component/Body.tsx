@@ -2,7 +2,6 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { AuthorPosts } from "@/helper/fakeData";
 import PostCard from "./PostCard";
-import { THeaderCard } from "@/types/elements";
 
 function Body() {
   return (

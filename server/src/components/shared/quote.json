@@ -1,8 +1,7 @@
 {
   "collectionName": "components_shared_quotes",
   "info": {
-    "displayName": "Quote",
-    "icon": "indent"
+    "displayName": "Quote"
   },
   "options": {},
   "attributes": {

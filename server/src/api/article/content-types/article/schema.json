@@ -5,19 +5,25 @@
     "singularName": "article",
     "pluralName": "articles",
     "displayName": "Article",
-    "description": "Create your blog content"
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text",
-      "maxLength": 80
+      "type": "string",
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "slug": {
       "type": "uid",
@@ -31,19 +37,34 @@
         "images",
         "files",
         "videos"
-      ]
-    },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+      "type": "enumeration",
+      "enum": [
+        "Lifestyle",
+        "Travel",
+        "Food",
+        "Healthcare",
+        "Technology",
+        "Nature",
+        "سبک زندگی",
+        "سفر",
+        "غذا",
+        "بهداشت",
+        "فن آوری",
+        "طبیعت"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "blocks": {
       "type": "dynamiczone",
@@ -52,7 +73,52 @@
         "shared.quote",
         "shared.rich-text",
         "shared.slider"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "article"
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "featured",
+        "popular"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "shortDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "readTime": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
     }
   }
 }

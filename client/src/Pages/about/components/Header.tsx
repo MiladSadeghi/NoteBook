@@ -77,8 +77,8 @@ function Header() {
         </Typography>
         <Grid container columns={15}>
           {[Grammarly, Unsplash, Wordpress, Medium, Blogger].map(
-            (image: any) => (
-              <Grid item xs={3}>
+            (image: any, index: number) => (
+              <Grid item xs={3} key={index}>
                 <img src={image} alt="featured-websites" />
               </Grid>
             )

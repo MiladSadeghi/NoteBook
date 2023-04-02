@@ -32,7 +32,7 @@ function Navbar() {
                   Homepage
                 </Typography>
               </Link>
-              <Link to={"/about"}>
+              <Link to={"/about-us"}>
                 <Typography
                   component="h6"
                   variant="h6"
@@ -42,7 +42,7 @@ function Navbar() {
                   About
                 </Typography>
               </Link>
-              <Link to={"/categories"}>
+              <Link to={"/category"}>
                 <Typography
                   component="h6"
                   variant="h6"
