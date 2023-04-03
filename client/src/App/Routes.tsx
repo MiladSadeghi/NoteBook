@@ -13,6 +13,7 @@ import Category from "@/Pages/categories";
 import Contact from "@/Pages/contact";
 import About from "@/Pages/about";
 import Author from "@/Pages/author";
+import Article from "@/Pages/article/Article";
 
 function Routes() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function Routes() {
         <Route path="/contact-us" index element={<Contact />} />
         <Route path="/about-us" index element={<About />} />
         <Route path="/author/:slug" index element={<Author />} />
+        <Route path="/article/:slug" index element={<Article />} />
         <Route path="*" index element={<Navigate to="/404" />} />
       </RouterRoutes>
     </AnimatePresence>

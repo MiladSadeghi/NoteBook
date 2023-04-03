@@ -105,3 +105,68 @@ export const GET_AUTHORS = gql`
     }
   }
 `;
+
+export const GET_ARTICLE = gql`
+  query getAuthor($slug: String!) {
+    articles(filters: { slug: { eq: $slug } }) {
+      data {
+        attributes {
+          title
+          slug
+          category
+          blocks {
+            ... on ComponentSharedRichText {
+              id
+              body
+            }
+            ... on ComponentSharedMedia {
+              id
+              file {
+                data {
+                  id
+                  attributes {
+                    name
+                    alternativeText
+                    height
+                    size
+                    url
+                    previewUrl
+                    width
+                  }
+                }
+              }
+            }
+          }
+          readTime
+          createdAt
+          cover {
+            data {
+              attributes {
+                name
+                alternativeText
+                url
+              }
+            }
+          }
+          author {
+            data {
+              attributes {
+                name
+                slug
+                avatar {
+                  data {
+                    attributes {
+                      alternativeText
+                      url
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

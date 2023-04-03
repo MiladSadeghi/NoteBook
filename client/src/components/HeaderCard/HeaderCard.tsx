@@ -16,7 +16,6 @@ function HeaderCard({
   withImage,
   width,
 }: THeaderCard & { width?: string }) {
-  console.log(width);
   return (
     <Box
       component="div"

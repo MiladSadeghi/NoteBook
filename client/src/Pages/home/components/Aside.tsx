@@ -186,6 +186,7 @@ function Aside() {
           <Box display="flex" flexWrap="wrap" gap="12px">
             {tags.map((tag: string) => (
               <Typography
+                key={tag}
                 component="h6"
                 px="20px"
                 py="10px"

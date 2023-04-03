@@ -12,8 +12,6 @@ function About() {
     return null;
   }
 
-  console.log(data.authors.data);
-
   return (
     <>
       <Header />
