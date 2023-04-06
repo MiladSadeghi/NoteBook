@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
-import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
+import { HiOutlineMoon } from "react-icons/hi";
 import { FiSun } from "react-icons/fi";
 
 function DarkModeToggle() {

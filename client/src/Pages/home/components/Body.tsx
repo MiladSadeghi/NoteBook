@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, Pagination } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { HomeBodyContent } from "@/helper/fakeData";
 import BodyCard from "@/components/BodyCard";

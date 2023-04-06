@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import React from "react";
 
 type TTextarea = {
@@ -8,7 +7,6 @@ type TTextarea = {
 function Textarea({ placeholder }: TTextarea) {
   return (
     <textarea
-      // component="textarea"
       placeholder={placeholder}
       rows={6}
       style={{

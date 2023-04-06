@@ -1,5 +1,4 @@
 import React from "react";
-import { AuthorDetail } from "@/helper/fakeData";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { BsFacebook } from "react-icons/bs";
 import { GrPinterest } from "react-icons/gr";

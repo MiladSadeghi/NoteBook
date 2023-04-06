@@ -1,8 +1,5 @@
 import React from "react";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import Routes from "./App/Routes";
-import store from "./features/store";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./helper/theme";
@@ -21,16 +18,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <React.Suspense fallback={"loading..."}>
-              <CssBaseline />
-              <Navbar />
-              <LazyRoutes />
-              <Footer />
-            </React.Suspense>
-          </ThemeProvider>
-        </Provider>
+        <ThemeProvider theme={theme}>
+          <React.Suspense fallback={"loading..."}>
+            <CssBaseline />
+            <Navbar />
+            <LazyRoutes />
+            <Footer />
+          </React.Suspense>
+        </ThemeProvider>
       </BrowserRouter>
     </ApolloProvider>
   );

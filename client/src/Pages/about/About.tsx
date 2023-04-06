@@ -1,7 +1,6 @@
 import React from "react";
 import Body from "./components/Body";
 import Header from "./components/Header";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS } from "@/graphql/queries";
 
