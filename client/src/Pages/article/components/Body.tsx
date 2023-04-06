@@ -98,7 +98,11 @@ function Body({ articleInformation }: { articleInformation: TArticle }) {
         sx={{
           img: { width: "100%", my: 2 },
           [`& p`]: { lineHeight: "35px" },
-          h2: { mb: 3, fontWeight: "700" },
+          [`& h2, h3, h4`]: {
+            mb: 2,
+            mt: 4,
+          },
+          h2: { fontWeight: 700 },
           blockquote: {
             p: 4,
             backgroundColor: "#F2F8F7",
@@ -123,8 +127,47 @@ function Body({ articleInformation }: { articleInformation: TArticle }) {
               zIndex: 9,
             },
           },
+          table: {
+            width: "100%",
+            borderSpacing: 0,
+            overflow: "hidden",
+            borderRadius: "5px",
+            my: 2,
+          },
+          thead: {
+            backgroundColor: "#DFF1F0",
+            borderRadius: "5px 5px 0 0",
+          },
+          th: {
+            py: 1.5,
+            color: "#00AAA1",
+          },
+          tbody: {
+            [`tr:nth-child(odd)`]: {
+              backgroundColor: "#F2F8F7",
+            },
+            [`tr:nth-child(even)`]: {
+              backgroundColor: "#FDFDFD",
+            },
+          },
+          td: {
+            py: 1.5,
+            textAlign: "center",
+            color: "#666666",
+            fontSize: 15,
+            [`&:not(:last-child)`]: {
+              borderRight: "1.5px solid #DFF1F0",
+            },
+          },
+          caption: {
+            py: 1.5,
+            color: "#00AAA1",
+            borderRadius: "5px 5px 0 0",
+            backgroundColor: "#DFF1F0",
+            fontWeight: "bold",
+          },
         }}
-      ></Box>
+      />
     </div>
   );
 }

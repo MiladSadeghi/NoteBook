@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { MarkdownToJSX } from "markdown-to-jsx";
 import { Link } from "react-router-dom";
 
@@ -45,6 +45,30 @@ export const options: MarkdownToJSX.Options = {
       props: { paragraph: true },
     },
     a: { component: Link },
-    image: { props: {} },
+    ol: {
+      component: Box,
+      props: {
+        component: "ol",
+        style: {
+          paddingLeft: 0,
+          listStylePosition: "inside",
+        },
+        sx: { [`& ::marker`]: { fontWeight: 600 } },
+      },
+    },
+    ul: {
+      component: Box,
+      props: {
+        component: "ul",
+      },
+    },
+    li: {
+      component: "li",
+      props: {
+        style: {
+          marginBottom: 20,
+        },
+      },
+    },
   },
 };
