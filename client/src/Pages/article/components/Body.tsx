@@ -8,7 +8,6 @@ import Markdown from "markdown-to-jsx";
 import { options } from "@/helper/markdown";
 
 function Body({ articleInformation }: { articleInformation: TArticle }) {
-  console.log(typeof articleInformation.blocks[0].body);
   return (
     <div>
       <Typography
@@ -143,10 +142,10 @@ function Body({ articleInformation }: { articleInformation: TArticle }) {
             color: "#00AAA1",
           },
           tbody: {
-            [`tr:nth-child(odd)`]: {
+            [`tr:nth-of-type(odd)`]: {
               backgroundColor: "#F2F8F7",
             },
-            [`tr:nth-child(even)`]: {
+            [`tr:nth-of-type(even)`]: {
               backgroundColor: "#FDFDFD",
             },
           },

@@ -170,3 +170,42 @@ export const GET_ARTICLE = gql`
     }
   }
 `;
+
+export const GET_ARTICLES_AND_AUTHORS = gql`
+  query {
+    articles(pagination: { limit: 100 }) {
+      data {
+        id
+        attributes {
+          title
+          category
+        }
+      }
+    }
+    authors {
+      data {
+        id
+        attributes {
+          name
+          slug
+          articles {
+            data {
+              id
+            }
+          }
+          avatar {
+            data {
+              id
+              attributes {
+                alternativeText
+                url
+                previewUrl
+              }
+            }
+          }
+          email
+        }
+      }
+    }
+  }
+`;

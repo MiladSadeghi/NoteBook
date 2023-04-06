@@ -1,32 +1,44 @@
 import AuthorCard from "@/components/AuthorCard";
+import { GET_ARTICLES_AND_AUTHORS } from "@/graphql/queries";
+import { useQuery } from "@apollo/client";
 import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Aside() {
-  const categories = [
-    { category: "Lifestyle", count: "09" },
-    { category: "Travel", count: "05" },
-    { category: "Food", count: "09" },
-    { category: "Healthcare", count: "10" },
-    { category: "Technology", count: "03" },
-    { category: "Nature", count: "05" },
-  ];
+  const navigate = useNavigate();
+  const categories: any = {
+    Lifestyle: 0,
+    Travel: 0,
+    Food: 0,
+    Healthcare: 0,
+    Technology: 0,
+    Nature: 0,
+  };
+  const { data, loading, error } = useQuery(GET_ARTICLES_AND_AUTHORS);
 
-  const tags = [
-    "Travel",
-    "Lifestyle",
-    "Fashion",
-    "Technology",
-    "Business",
-    "Design",
-    "Health",
-    "Food",
-    "Art",
-  ];
+  if (loading) {
+    return null;
+  }
+  if (!loading && data.articles.data.length === 0 && !error) {
+    navigate("/404");
+    return null;
+  }
+
+  const authors = data.authors.data
+    .slice()
+    .sort(
+      (a: any, b: any) =>
+        b.attributes.articles.data.length - a.attributes.articles.data.length
+    );
+
+  data.articles.data.forEach(
+    (item: any) => (categories[item.attributes.category] += 1)
+  );
 
   return (
-    <div>
+    <aside>
       <Typography component="h3" variant="h3" mb={4}>
         <Typography
           component="span"
@@ -42,18 +54,15 @@ function Aside() {
         Authors
       </Typography>
       <Box mb={7}>
-        <AuthorCard
-          name="Jenny Kia"
-          field="Fashion designer, Blogger, activist"
-        />
-        <AuthorCard
-          name="Andress rasel"
-          field="Blogger, activist, content creator, part time designer at: www.gethugothemes.com"
-        />
-        <AuthorCard
-          name="Jenny Kia"
-          field="Fashion designer, Blogger, activist"
-        />
+        {authors.slice(0, 3).map((item: any) => (
+          <AuthorCard
+            key={item.attributes.slug}
+            avatar={`${item.attributes.avatar.data.attributes.url}`}
+            email={item.attributes.email}
+            name={item.attributes.name}
+            slug={item.attributes.slug}
+          />
+        ))}
       </Box>
       <Box position="relative" zIndex={12}>
         <Box
@@ -134,7 +143,7 @@ function Aside() {
           Categories
         </Typography>
         <Box>
-          {categories.map((category: any, index: number) => (
+          {Object.entries(categories).map(([key, value]: any, index: any) => (
             <React.Fragment key={index}>
               <Box
                 display="flex"
@@ -150,7 +159,7 @@ function Aside() {
                   fontWeight={500}
                   fontSize={15}
                 >
-                  {category.category}
+                  {key}
                 </Typography>
                 <Typography
                   component="h6"
@@ -159,56 +168,17 @@ function Aside() {
                   fontWeight={500}
                   fontSize={15}
                 >
-                  {category.count}
+                  {value}
                 </Typography>
               </Box>
-              {index + 1 !== categories.length && (
+              {index + 1 !== Object.keys(categories).length && (
                 <Divider sx={{ mb: "12.7px", borderBottomStyle: "dashed" }} />
               )}
             </React.Fragment>
           ))}
         </Box>
-        <Box mt={10}>
-          <Typography component="h3" variant="h3" mb={5}>
-            <Typography
-              component="span"
-              color="#fff"
-              fontWeight={600}
-              fontSize={21}
-              px={0.3}
-              mr={1}
-              sx={{ backgroundColor: "#00AAA1" }}
-            >
-              Search
-            </Typography>
-            With Tags
-          </Typography>
-          <Box display="flex" flexWrap="wrap" gap="12px">
-            {tags.map((tag: string) => (
-              <Typography
-                key={tag}
-                component="h6"
-                px="20px"
-                py="10px"
-                gap="12px"
-                border="1px solid rgba(196, 196, 196, 1)"
-                sx={{
-                  borderRadius: "4px",
-                  transition: "all 0.1s ease-in-out",
-                  "&:hover": {
-                    background: "rgba(0, 170, 161, 1)",
-                    color: "#fff",
-                    borderColor: "transparent",
-                  },
-                }}
-              >
-                {tag}
-              </Typography>
-            ))}
-          </Box>
-        </Box>
       </Box>
-    </div>
+    </aside>
   );
 }
 

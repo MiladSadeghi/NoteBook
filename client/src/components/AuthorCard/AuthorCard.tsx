@@ -2,11 +2,24 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function AuthorCard({ name, field }: { name: string; field: string }) {
+function AuthorCard({
+  avatar,
+  name,
+  email,
+  slug,
+}: {
+  avatar: string;
+  name: string;
+  email: string;
+  slug: string;
+}) {
   return (
     <Box display="flex" mb={5}>
       <Box
+        component="img"
+        src={`${process.env.REACT_APP_BACKEND_ADDRESS}${avatar}`}
         mr={3}
         sx={{
           minWidth: 80,
@@ -15,18 +28,20 @@ function AuthorCard({ name, field }: { name: string; field: string }) {
           maxHeight: 80,
           background: "rgba(217, 217, 217, 1)",
           borderRadius: "100%",
+          objectFit: "cover",
         }}
       />
       <Box display="flex" flexDirection="column">
-        <Typography
-          component="h3"
+        <Box
+          component={Link}
+          to={`/author/${slug}`}
           fontSize="17px"
           fontWeight={600}
           mb={1}
-          color="222222"
+          color="#222222"
         >
           {name}
-        </Typography>
+        </Box>
         <Typography
           component="p"
           fontSize="12px"
@@ -35,7 +50,7 @@ function AuthorCard({ name, field }: { name: string; field: string }) {
           color="#666666"
           mb="14px"
         >
-          {field}
+          {email}
         </Typography>
         <Box display="flex">
           <Box

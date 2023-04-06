@@ -11,7 +11,13 @@ const LazyRoutes = React.lazy(() => import("@/App/Routes"));
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_STRAPI_URL,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Author: {
+        keyFields: ["slug"],
+      },
+    },
+  }),
 });
 
 function App() {
