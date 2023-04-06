@@ -303,3 +303,53 @@ export const GET_POPULAR_ARTICLE = gql`
     }
   }
 `;
+
+export const GET_ARTICLES = gql`
+  query getArticles($page: Int!) {
+    articles(pagination: { page: $page, pageSize: 9 }) {
+      data {
+        id
+        attributes {
+          title
+          slug
+          cover {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+          category
+          author {
+            data {
+              attributes {
+                name
+                avatar {
+                  data {
+                    attributes {
+                      alternativeText
+                      url
+                    }
+                  }
+                }
+                slug
+              }
+            }
+          }
+          readTime
+          shortDescription
+          createdAt
+        }
+      }
+      meta {
+        pagination {
+          total
+          page
+          pageCount
+          pageSize
+        }
+      }
+    }
+  }
+`;

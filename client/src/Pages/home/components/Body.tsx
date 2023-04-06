@@ -1,10 +1,29 @@
 import { Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HomeBodyContent } from "@/helper/fakeData";
 import BodyCard from "@/components/BodyCard";
 import HomePagination from "@/components/Pagination/HomePagination";
+import { useQuery } from "@apollo/client";
+import { GET_ARTICLES } from "@/graphql/queries";
 
 function Body() {
+  const [homeContent, setHomeContent] = useState<any>();
+  const { data, loading } = useQuery(GET_ARTICLES, {
+    variables: { page: 4 },
+  });
+
+  useEffect(() => {
+    setHomeContent(data);
+  }, [data]);
+
+  useEffect(() => {
+    console.log(homeContent);
+  }, [homeContent]);
+
+  if (loading || !homeContent || !data) {
+    return null;
+  }
+
   return (
     <div>
       <Typography component="h3" variant="h3" mb={7}>
@@ -22,12 +41,14 @@ function Body() {
         Posted
       </Typography>
       <Grid container>
-        {HomeBodyContent.map((post: any, index: number) => (
-          <Grid item xs={12} key={index} mb={6}>
-            <BodyCard {...post} />
-          </Grid>
-        ))}
-        <HomePagination />
+        {homeContent.articles.data &&
+          homeContent.articles.data.map((post: any, index: number) => (
+            <BodyCard {...post.attributes} key={index} />
+          ))}
+        <HomePagination
+          homeContent={homeContent}
+          setHomeContent={setHomeContent}
+        />
       </Grid>
     </div>
   );
