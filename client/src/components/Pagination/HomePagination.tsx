@@ -1,16 +1,30 @@
+import { GET_ARTICLES } from "@/graphql/queries";
+import { useLazyQuery } from "@apollo/client";
 import { Box, Button } from "@mui/material";
 import React, { useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
-function HomePagination() {
-  const [page, setPage] = useState(1);
+function HomePagination({ homeContent, setHomeContent }: any) {
+  const [page, setPage] = useState(4);
+
+  const [getArticles] = useLazyQuery(GET_ARTICLES);
+
+  const handlePagination = async (page: number) => {
+    try {
+      const { data } = await getArticles({ variables: { page: page } });
+      setHomeContent(data);
+      setPage(page);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Box width="100%" display="flex" justifyContent="center" mt={5}>
       <Button
-        variant={page === 1 ? "outlined" : "contained"}
-        disabled={page === 1 ? true : false}
-        onClick={() => setPage(page - 1)}
+        variant={page === 4 ? "outlined" : "contained"}
+        disabled={page === 4 ? true : false}
+        onClick={() => handlePagination(page + 1)}
         sx={{
           textTransform: "capitalize",
           background: "rgba(0, 170, 161, 1)",
@@ -26,7 +40,7 @@ function HomePagination() {
         <IoIosArrowRoundBack style={{ marginLeft: 2 }} size={17} />
         Prev.
       </Button>
-      {[1, 2, 3, 4].map((item: number) => (
+      {[4, 3, 2, 1].map((item: number, index: number) => (
         <Button
           sx={{
             mr: 2,
@@ -39,16 +53,16 @@ function HomePagination() {
               backgroundColor: page === item ? "rgba(0, 170, 161, 1)" : "#fff",
             },
           }}
-          onClick={() => setPage(item)}
+          onClick={() => handlePagination(item)}
           key={item}
         >
-          {item}
+          {index + 1}
         </Button>
       ))}
       <Button
-        variant={page === 4 ? "outlined" : "contained"}
-        disabled={page === 4 ? true : false}
-        onClick={() => setPage(page + 1)}
+        variant={page === 1 ? "outlined" : "contained"}
+        disabled={page === 1 ? true : false}
+        onClick={() => handlePagination(page - 1)}
         sx={{
           textTransform: "capitalize",
           background: "rgba(0, 170, 161, 1)",
