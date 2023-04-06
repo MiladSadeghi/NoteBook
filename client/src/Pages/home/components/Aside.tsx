@@ -3,7 +3,7 @@ import { GET_ARTICLES_AND_AUTHORS } from "@/graphql/queries";
 import { useQuery } from "@apollo/client";
 import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Aside() {

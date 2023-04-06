@@ -1,21 +1,22 @@
 import { Typography, Box, Avatar, Divider } from "@mui/material";
 import React from "react";
-import AuthorAvatar from "@/images/author-photo.png";
 import { BsCalendar4Week } from "react-icons/bs";
 import { MdOutlineWatchLater } from "react-icons/md";
-import { THeaderCard } from "@/types/elements";
+import { Link } from "react-router-dom";
+import { ArticleCreatedAt } from "@/helper/date";
 
 function HeaderCard({
   category,
   title,
-  image,
+  cover,
   author,
-  createdAt,
   readTime,
   shortDescription,
   withImage,
   width,
-}: THeaderCard & { width?: string }) {
+  createdAt,
+  slug,
+}: any) {
   return (
     <Box
       component="div"
@@ -39,17 +40,30 @@ function HeaderCard({
       >
         {category}
       </Typography>
-      <Typography
-        component="h1"
-        variant="h1"
-        width={334}
-        textTransform="capitalize"
-        mb={withImage ? 3 : 1}
-      >
-        {title}
-      </Typography>
+      <Box component={Link} to={`/article/${slug}`}>
+        <Typography
+          component="h1"
+          variant="h1"
+          width={334}
+          textTransform="capitalize"
+          mb={withImage ? 3 : 1}
+          sx={{
+            overflow: "hidden",
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: "2",
+            whiteSpace: "pre-wrap",
+          }}
+          color="#222222"
+        >
+          {title}
+        </Typography>
+      </Box>
+
       {withImage && (
         <Box
+          component="img"
+          src={`${process.env.REACT_APP_BACKEND_ADDRESS}${cover.data.attributes.url}`}
           width="100%"
           height="229px"
           mb={3}
@@ -58,21 +72,23 @@ function HeaderCard({
       )}
       <Box component="div" display="flex" alignItems="center">
         <Avatar
-          alt={author.name}
-          src={AuthorAvatar}
+          alt={author.data.attributes.name}
+          src={`${process.env.REACT_APP_BACKEND_ADDRESS}${author.data.attributes.avatar.data.attributes.url}`}
           sx={{ width: 18, height: 18 }}
         />
-        <Typography
-          ml={1}
-          component="h5"
-          variant="h5"
-          fontSize={12}
-          fontWeight={400}
-          lineHeight="12px"
-          color="rgba(119, 119, 119, 1)"
-        >
-          {author.name}
-        </Typography>
+        <Box component={Link} to={`/author/${author.data.attributes.slug}`}>
+          <Typography
+            ml={1}
+            component="h5"
+            variant="h5"
+            fontSize={12}
+            fontWeight={400}
+            lineHeight="12px"
+            color="rgba(119, 119, 119, 1)"
+          >
+            {author.data.attributes.name}
+          </Typography>
+        </Box>
         <Divider
           orientation="vertical"
           variant="middle"
@@ -89,7 +105,7 @@ function HeaderCard({
           fontWeight={400}
           fontSize={12}
         >
-          {createdAt}
+          {ArticleCreatedAt(createdAt)}
         </Typography>
         <Divider
           orientation="vertical"
@@ -115,6 +131,13 @@ function HeaderCard({
         fontSize={15}
         mt={2}
         lineHeight="22.5px"
+        sx={{
+          overflow: "hidden",
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          WebkitLineClamp: "2",
+          whiteSpace: "pre-wrap",
+        }}
       >
         {shortDescription}
       </Typography>

@@ -1,19 +1,48 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useState, useRef, useEffect } from "react";
-import {
-  FeaturedThisMonthContent,
-  PopularPostedContent,
-} from "@/helper/fakeData";
 import HeaderCard from "@/components/HeaderCard";
+import { useQuery } from "@apollo/client";
+import { GET_FEATURE_ARTICLE, GET_POPULAR_ARTICLE } from "@/graphql/queries";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [popularPostTab, setPopularPostTab] = useState<number>(0);
   const PopularPostRef = useRef<any>();
+  const navigate = useNavigate();
+  const {
+    data: dataFeatured,
+    loading: loadingFeatured,
+    error: errorFeatured,
+  } = useQuery(GET_FEATURE_ARTICLE);
+  const {
+    data: dataPopular,
+    loading: loadingPopular,
+    error: errorPopular,
+  } = useQuery(GET_POPULAR_ARTICLE);
 
   useEffect(() => {
-    PopularPostRef.current.scrollLeft =
-      PopularPostRef.current.scrollWidth * ((popularPostTab * 25) / 100);
+    if (!loadingFeatured && !loadingPopular) {
+      PopularPostRef.current.scrollLeft =
+        PopularPostRef.current.scrollWidth * ((popularPostTab * 25) / 100);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [popularPostTab]);
+
+  if (dataFeatured === undefined || dataPopular === undefined) {
+    return null;
+  }
+
+  if (
+    !loadingFeatured &&
+    dataFeatured.articles.data.length === 0 &&
+    !errorFeatured &&
+    !loadingPopular &&
+    dataPopular.articles.data.length === 0 &&
+    !errorPopular
+  ) {
+    navigate("/404");
+    return null;
+  }
 
   return (
     <Box component="div" mt={8} sx={{ backgroundColor: "#F2F8F7" }}>
@@ -59,9 +88,9 @@ function Header() {
                   },
                 }}
               >
-                {FeaturedThisMonthContent.map((post: any, index: number) => (
+                {dataFeatured.articles.data.map((post: any, index: number) => (
                   <Grid key={index} item xs={6} height={485} marginBottom={2}>
-                    <HeaderCard {...post} withImage={true} />
+                    <HeaderCard {...post.attributes} withImage={true} />
                   </Grid>
                 ))}
               </Grid>
@@ -96,10 +125,10 @@ function Header() {
                   scrollBehavior: "smooth",
                 }}
               >
-                {PopularPostedContent.map((post: any, index: number) => (
+                {dataPopular.articles.data.map((post: any, index: number) => (
                   <Grid key={index} item width="fit-content">
                     <HeaderCard
-                      {...post}
+                      {...post.attributes}
                       withImage={false}
                       width="fit-content"
                     />

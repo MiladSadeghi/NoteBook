@@ -209,3 +209,97 @@ export const GET_ARTICLES_AND_AUTHORS = gql`
     }
   }
 `;
+
+export const GET_FEATURE_ARTICLE = gql`
+  query {
+    articles(filters: { tag: { eq: "featured" } }) {
+      data {
+        attributes {
+          title
+          slug
+          category
+          tag
+          shortDescription
+          readTime
+          author {
+            data {
+              id
+              attributes {
+                name
+                slug
+                avatar {
+                  data {
+                    id
+                    attributes {
+                      alternativeText
+                      url
+                      previewUrl
+                    }
+                  }
+                }
+              }
+            }
+          }
+          cover {
+            data {
+              attributes {
+                alternativeText
+                url
+                previewUrl
+              }
+              id
+            }
+          }
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
+export const GET_POPULAR_ARTICLE = gql`
+  query {
+    articles(filters: { tag: { eq: "popular" } }) {
+      data {
+        attributes {
+          title
+          slug
+          category
+          tag
+          shortDescription
+          readTime
+          author {
+            data {
+              id
+              attributes {
+                name
+                slug
+                avatar {
+                  data {
+                    id
+                    attributes {
+                      alternativeText
+                      url
+                      previewUrl
+                    }
+                  }
+                }
+              }
+            }
+          }
+          cover {
+            data {
+              attributes {
+                alternativeText
+                url
+                previewUrl
+              }
+              id
+            }
+          }
+          createdAt
+        }
+      }
+    }
+  }
+`;
