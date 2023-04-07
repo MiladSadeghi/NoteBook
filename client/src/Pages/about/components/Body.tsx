@@ -1,10 +1,9 @@
-import { TAuthors } from "@/types/author";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-function Body({ authorsInformation }: { authorsInformation: TAuthors[] }) {
+function Body({ authorsInformation }: { authorsInformation: any }) {
   return (
     <Box mt={9.5}>
       <Container maxWidth="xl">
@@ -29,7 +28,7 @@ function Body({ authorsInformation }: { authorsInformation: TAuthors[] }) {
           Our Authors
         </Typography>
         <Grid container spacing={5} mb={12.5}>
-          {authorsInformation.map((author: TAuthors, index: number) => (
+          {authorsInformation.map((author: any, index: number) => (
             <Grid item xs={6} key={index}>
               <Box
                 display="flex"

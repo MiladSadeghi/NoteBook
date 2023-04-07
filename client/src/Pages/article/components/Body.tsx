@@ -1,5 +1,4 @@
 import { ArticleCreatedAt } from "@/helper/date";
-import { TArticle } from "@/types/article";
 import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
 import { BsCalendar4Week } from "react-icons/bs";
@@ -7,7 +6,7 @@ import { Link } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
 import { options } from "@/helper/markdown";
 
-function Body({ articleInformation }: { articleInformation: TArticle }) {
+function Body({ articleInformation }: { articleInformation: any }) {
   return (
     <div>
       <Typography

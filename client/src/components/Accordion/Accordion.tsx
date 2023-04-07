@@ -1,4 +1,3 @@
-import { TAccordion } from "@/types/elements";
 import {
   Accordion,
   AccordionDetails,
@@ -14,7 +13,7 @@ function AccordionTab({
   tab,
   expanded,
   handleChange,
-}: TAccordion & { tab: number; expanded: any; handleChange: any }) {
+}: any & { tab: number; expanded: any; handleChange: any }) {
   return (
     <Accordion
       expanded={expanded === `panel${tab}`}

@@ -1,9 +1,7 @@
-import { THeaderCard } from "@/types/elements";
-import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
 import { BsCalendar4Week } from "react-icons/bs";
 import { MdOutlineWatchLater } from "react-icons/md";
-import AuthorAvatar from "@/images/author-photo.png";
 import { ArticleCreatedAt } from "@/helper/date";
 import { Link } from "react-router-dom";
 

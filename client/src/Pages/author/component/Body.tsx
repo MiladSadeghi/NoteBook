@@ -1,10 +1,8 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import { AuthorPosts } from "@/helper/fakeData";
 import PostCard from "./PostCard";
 
 function Body(data: any) {
-  console.log(data);
   return (
     <Box my={12.5}>
       <Container maxWidth="xl">

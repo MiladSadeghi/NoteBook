@@ -1,5 +1,4 @@
 import AccordionTab from "@/components/Accordion/Accordion";
-import { TAccordion } from "@/types/elements";
 import { Box, Container, Typography } from "@mui/material";
 import { useState } from "react";
 
@@ -10,7 +9,7 @@ function Faq() {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
-  const accordionsContent: TAccordion[] = [
+  const accordionsContent: any = [
     {
       title: "is there have any option for write blog",
       description:
@@ -67,7 +66,7 @@ function Faq() {
           </Typography>
         </Box>
         <Box display="flex" alignItems="center" flexDirection="column">
-          {accordionsContent.map((accordion: TAccordion, index: number) => (
+          {accordionsContent.map((accordion: any, index: number) => (
             <AccordionTab
               key={index}
               {...accordion}

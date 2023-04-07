@@ -3,9 +3,8 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { BsFacebook } from "react-icons/bs";
 import { GrPinterest } from "react-icons/gr";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
-import { TAuthor } from "@/types/author";
 
-function Header({ ...authorInformation }: TAuthor) {
+function Header({ ...authorInformation }: any) {
   const { name, avatar, description, quote, quoteDescription } =
     authorInformation;
 
