@@ -4,6 +4,8 @@ import React from "react";
 import { BsCalendar4Week } from "react-icons/bs";
 import { MdOutlineWatchLater } from "react-icons/md";
 import AuthorAvatar from "@/images/author-photo.png";
+import { ArticleCreatedAt } from "@/helper/date";
+import { Link } from "react-router-dom";
 
 function PostCard({
   category,
@@ -12,10 +14,14 @@ function PostCard({
   createdAt,
   readTime,
   shortDescription,
-}: THeaderCard) {
+  slug,
+  cover,
+}: any) {
   return (
     <Box display="flex" flexDirection="column">
       <Box
+        component="img"
+        src={`${process.env.REACT_APP_BACKEND_ADDRESS}${cover.data.attributes.url}`}
         width="100%"
         height="262px"
         mb={4}
@@ -37,31 +43,19 @@ function PostCard({
       >
         {category}
       </Typography>
-      <Typography component="h1" variant="h1" mb={3} textTransform="capitalize">
-        {title}
-      </Typography>
-      <Box component="div" display="flex" alignItems="center" mb={2}>
-        <Avatar
-          alt={author.name}
-          src={AuthorAvatar}
-          sx={{ width: 18, height: 18 }}
-        />
+      <Link to={`/article/${slug}`}>
         <Typography
-          ml={1}
-          component="h5"
-          variant="h5"
-          fontSize={12}
-          fontWeight={400}
-          lineHeight="12px"
-          color="rgba(119, 119, 119, 1)"
+          component="h1"
+          variant="h1"
+          mb={3}
+          textTransform="capitalize"
+          color="#222222"
         >
-          {author.name}
+          {title}
         </Typography>
-        <Divider
-          orientation="vertical"
-          variant="middle"
-          sx={{ ml: 0.7, height: 12, borderColor: "rgba(153, 153, 153, 1)" }}
-        />
+      </Link>
+
+      <Box component="div" display="flex" alignItems="center" mb={2}>
         <BsCalendar4Week
           color="rgba(153, 153, 153, 1)"
           size={10.8}
@@ -73,7 +67,7 @@ function PostCard({
           fontWeight={400}
           fontSize={12}
         >
-          {createdAt}
+          {ArticleCreatedAt(createdAt)}
         </Typography>
         <Divider
           orientation="vertical"

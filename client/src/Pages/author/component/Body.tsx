@@ -3,7 +3,8 @@ import React from "react";
 import { AuthorPosts } from "@/helper/fakeData";
 import PostCard from "./PostCard";
 
-function Body() {
+function Body(data: any) {
+  console.log(data);
   return (
     <Box my={12.5}>
       <Container maxWidth="xl">
@@ -27,9 +28,9 @@ function Body() {
           Author Blogs
         </Typography>
         <Grid container spacing={4} rowSpacing={7}>
-          {AuthorPosts.map((item: any, index: number) => (
+          {data.articles.data.map((item: any, index: number) => (
             <Grid item xs={4} key={index}>
-              <PostCard {...item} />
+              <PostCard {...item.attributes} />
             </Grid>
           ))}
         </Grid>

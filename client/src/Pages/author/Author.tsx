@@ -24,7 +24,7 @@ function Author() {
   return (
     <>
       <Header {...data.authors.data[0].attributes} />
-      <Body />
+      <Body {...data.authors.data[0].attributes} />
     </>
   );
 }
