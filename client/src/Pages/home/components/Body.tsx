@@ -15,10 +15,6 @@ function Body() {
     setHomeContent(data);
   }, [data]);
 
-  useEffect(() => {
-    console.log(homeContent);
-  }, [homeContent]);
-
   if (loading || !homeContent || !data) {
     return null;
   }

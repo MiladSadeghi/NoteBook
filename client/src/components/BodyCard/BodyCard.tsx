@@ -15,6 +15,16 @@ function BodyCard({
   createdAt,
   slug,
 }: any) {
+  console.log(
+    category,
+    title,
+    cover,
+    author,
+    readTime,
+    shortDescription,
+    createdAt,
+    slug
+  );
   return (
     <Grid container item xs={12} mb={6} spacing={4}>
       <Grid item xs={4}>
@@ -23,7 +33,6 @@ function BodyCard({
           src={`${process.env.REACT_APP_BACKEND_ADDRESS}${cover.data.attributes.url}`}
           width={"100%"}
           height={210}
-          mr={4}
           sx={{ background: "#D9D9D9", borderRadius: 1, objectFit: "cover" }}
         />
       </Grid>

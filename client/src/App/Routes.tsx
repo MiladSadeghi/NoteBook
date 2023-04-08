@@ -13,6 +13,7 @@ import Contact from "@/Pages/contact";
 import About from "@/Pages/about";
 import Author from "@/Pages/author";
 import Article from "@/Pages/article/Article";
+import Search from "@/Pages/search/Search";
 
 function Routes() {
   const location = useLocation();
@@ -24,14 +25,15 @@ function Routes() {
   return (
     <RouterRoutes location={location} key={location.pathname}>
       <Route path="/" index element={<Home />} />
-      <Route path="/404" index element={<NotFound />} />
-      <Route path="/faq" index element={<Faq />} />
-      <Route path="/category" index element={<Category />} />
-      <Route path="/contact-us" index element={<Contact />} />
-      <Route path="/about-us" index element={<About />} />
-      <Route path="/author/:slug" index element={<Author />} />
-      <Route path="/article/:slug" index element={<Article />} />
-      <Route path="*" index element={<Navigate to="/404" />} />
+      <Route path="/404" element={<NotFound />} />
+      <Route path="/faq" element={<Faq />} />
+      <Route path="/category" element={<Category />} />
+      <Route path="/contact-us" element={<Contact />} />
+      <Route path="/about-us" element={<About />} />
+      <Route path="/author/:slug" element={<Author />} />
+      <Route path="/article/:slug" element={<Article />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </RouterRoutes>
   );
 }

@@ -353,3 +353,56 @@ export const GET_ARTICLES = gql`
     }
   }
 `;
+
+export const SEARCH_ARTICLES = gql`
+  query search($title: String!, $category: String!) {
+    articles(
+      filters: {
+        title: { contains: $title }
+        category: { contains: $category }
+      }
+      pagination: { limit: 100 }
+    ) {
+      data {
+        id
+        attributes {
+          title
+          slug
+          category
+          tag
+          shortDescription
+          readTime
+          createdAt
+          updatedAt
+          publishedAt
+          cover {
+            data {
+              id
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+          author {
+            data {
+              attributes {
+                slug
+                name
+                avatar {
+                  data {
+                    id
+                    attributes {
+                      alternativeText
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

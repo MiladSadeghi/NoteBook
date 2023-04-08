@@ -7,38 +7,46 @@ import { ReactComponent as Photography } from "@/images/photography.svg";
 import { ReactComponent as Food } from "@/images/food.svg";
 import { ReactComponent as Holitrav } from "@/images/holitrav.svg";
 import { ReactComponent as Health } from "@/images/health.svg";
+import { useNavigate } from "react-router-dom";
 
 function Category() {
   const categoriesContent = [
     {
       category: "environment & nature",
       icon: <EnvLogo />,
+      link: "nature",
     },
     {
       category: "technology",
       icon: <Tech />,
+      link: "technology",
     },
     {
       category: "lifestyle & fashion",
       icon: <Lifash />,
-    },
-    {
-      category: "photography",
-      icon: <Photography />,
+      link: "lifestyle",
     },
     {
       category: "food",
       icon: <Food />,
+      link: "food",
     },
     {
       category: "holiday & travel",
       icon: <Holitrav />,
+      link: "travel",
     },
     {
       category: "healthcare",
       icon: <Health />,
+      link: "healthcare",
     },
   ];
+  const navigate = useNavigate();
+
+  const handleSearch = (category: string) => {
+    navigate(`/search?category=${category}`);
+  };
 
   return (
     <Box sx={{ background: "rgba(242, 248, 247, 1)" }} pt="144px" pb={10}>
@@ -47,7 +55,7 @@ function Category() {
           Categories
         </Typography>
         <Grid container justifyContent="center" spacing={4}>
-          {categoriesContent.map(({ category, icon }: any) => {
+          {categoriesContent.map(({ category, icon, link }: any) => {
             return (
               <Grid item xs={3} key={category}>
                 <Box
@@ -56,10 +64,12 @@ function Category() {
                   display="flex"
                   flexDirection="column"
                   alignItems="center"
+                  onClick={() => handleSearch(link)}
                   sx={{
                     background: "rgba(232, 243, 243, 1)",
                     transition: "all 0.2s ease-in-out",
                     borderRadius: 1,
+                    cursor: "pointer",
                     svg: {
                       mb: 3,
                     },

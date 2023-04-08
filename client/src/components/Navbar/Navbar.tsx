@@ -1,12 +1,23 @@
-import { AppBar, Box, Grid, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Grid, Modal, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import LanguageChoicer from "./components/LanguageChoicer";
 import DarkModeToggle from "./components/DarkModeToggle";
 
 function Navbar() {
+  const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
+  const handleSearchModalOpen = () => setSearchModalOpen(true);
+  const handleSearchModalClose = () => setSearchModalOpen(false);
+  const [search, setSearch] = useState<string>("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    setSearchModalOpen(false);
+    navigate(`/search?query=${search}`);
+  };
+
   return (
     <AppBar
       className="background"
@@ -99,24 +110,75 @@ function Navbar() {
               display="flex"
               justifyContent="space-between"
             >
-              <FiSearch color="rgba(34, 34, 34, 1)" size="18px" />
-              <Link to={"/sign-in"}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  color="#fff"
-                  lineHeight="100%"
-                  px={2.5}
-                  py={1}
-                  letterSpacing={0.3}
+              <FiSearch
+                onClick={handleSearchModalOpen}
+                color="rgba(34, 34, 34, 1)"
+                size="18px"
+                style={{ cursor: "pointer" }}
+              />
+              <Modal
+                open={searchModalOpen}
+                onClose={handleSearchModalClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                sx={{
+                  position: "absolute" as "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "100%",
+                  height: "100%",
+                  bgcolor: "rgba(0, 0, 0, .1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  outline: "none",
+                }}
+              >
+                <Box
                   sx={{
-                    background: "rgba(0, 170, 161, 1)",
-                    borderRadius: "3px",
+                    border: "2px solid rgba(0, 170, 161, 1)",
+                    boxShadow: 24,
+                    p: 4,
+                    background: "#fff",
+                    borderRadius: "10px",
+                    display: "flex",
+                    width: { md: 500 },
+                    outline: "none",
                   }}
                 >
-                  Sign in
-                </Typography>
-              </Link>
+                  <Box
+                    component="input"
+                    sx={{
+                      width: "100%",
+                      border: "1px solid rgba(0, 0, 0, 0.23)",
+                      outline: "none",
+                      px: 2,
+                      py: 2,
+                      borderRadius: 1,
+                      mr: 2,
+                    }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <Box
+                    component="button"
+                    disabled={search === ""}
+                    onClick={handleSearch}
+                    sx={{
+                      px: 2,
+                      border: "none",
+                      outline: "none",
+                      color: "white",
+                      bgcolor: "rgba(0, 170, 161, 1)",
+                      borderRadius: 1,
+                      ":disabled": { opacity: 0.45 },
+                    }}
+                  >
+                    Search
+                  </Box>
+                </Box>
+              </Modal>
               <Link to={"/contact-us"}>
                 <Typography
                   component="h6"
