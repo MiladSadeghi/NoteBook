@@ -5,8 +5,16 @@ import { BsCalendar4Week } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
 import { options } from "@/helper/markdown";
+import CommentForm from "./CommentForm";
+import Comments from "./Comments";
 
-function Body({ articleInformation }: { articleInformation: any }) {
+function Body({
+  articleInformation,
+  articleID,
+}: {
+  articleInformation: any;
+  articleID: any;
+}) {
   return (
     <div>
       <Typography
@@ -166,6 +174,10 @@ function Body({ articleInformation }: { articleInformation: any }) {
           },
         }}
       />
+      <CommentForm articleID={articleID} />
+      {articleInformation.comments.data.length !== 0 && (
+        <Comments comments={articleInformation.comments.data} />
+      )}
     </div>
   );
 }

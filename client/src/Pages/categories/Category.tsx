@@ -3,7 +3,6 @@ import React from "react";
 import { ReactComponent as EnvLogo } from "@/images/envnat.svg";
 import { ReactComponent as Tech } from "@/images/tech.svg";
 import { ReactComponent as Lifash } from "@/images/lifash.svg";
-import { ReactComponent as Photography } from "@/images/photography.svg";
 import { ReactComponent as Food } from "@/images/food.svg";
 import { ReactComponent as Holitrav } from "@/images/holitrav.svg";
 import { ReactComponent as Health } from "@/images/health.svg";

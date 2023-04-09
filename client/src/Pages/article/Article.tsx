@@ -26,7 +26,10 @@ function Article() {
     <Container maxWidth="xl">
       <Grid container mt={7} mb={10} spacing={11}>
         <Grid item xs={8.8}>
-          <Body articleInformation={data.articles.data[0].attributes} />
+          <Body
+            articleID={data.articles.data[0].id}
+            articleInformation={data.articles.data[0].attributes}
+          />
         </Grid>
         <Grid item xs={3.2}>
           <Aside />

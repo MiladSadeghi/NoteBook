@@ -7,6 +7,8 @@ import { CssBaseline } from "@mui/material";
 import "./styles/font.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const LazyRoutes = React.lazy(() => import("@/App/Routes"));
 
 const client = new ApolloClient({
@@ -33,6 +35,7 @@ function App() {
             <Navbar />
             <LazyRoutes />
             <Footer />
+            <ToastContainer />
           </React.Suspense>
         </ThemeProvider>
       </BrowserRouter>

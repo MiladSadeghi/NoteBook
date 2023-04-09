@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Search() {
-  const [params, setParams] = useCustomSearchParams();
+  const [params] = useCustomSearchParams();
   const navigate = useNavigate();
   const { data, loading } = useQuery(SEARCH_ARTICLES, {
     variables: { title: params.query || "", category: params.category || "" },
@@ -18,6 +18,7 @@ function Search() {
       console.log(params.query, params.category, params);
       navigate("/404");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   if (loading) {

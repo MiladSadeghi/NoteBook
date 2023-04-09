@@ -110,6 +110,7 @@ export const GET_ARTICLE = gql`
   query getAuthor($slug: String!) {
     articles(filters: { slug: { eq: $slug } }) {
       data {
+        id
         attributes {
           title
           slug
@@ -162,6 +163,15 @@ export const GET_ARTICLE = gql`
                     }
                   }
                 }
+              }
+            }
+          }
+          comments {
+            data {
+              attributes {
+                name
+                message
+                createdAt
               }
             }
           }
