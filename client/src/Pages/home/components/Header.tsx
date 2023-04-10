@@ -49,7 +49,7 @@ function Header() {
       <Container maxWidth="xl">
         <Box py={10}>
           <Grid container spacing={5}>
-            <Grid item xs={8.8}>
+            <Grid item lg={8.8} xs={12}>
               <Typography component="h3" variant="h3">
                 <Typography
                   component="span"
@@ -89,13 +89,23 @@ function Header() {
                 }}
               >
                 {dataFeatured.articles.data.map((post: any, index: number) => (
-                  <Grid key={index} item xs={6} height={485} marginBottom={2}>
+                  <Grid
+                    key={index}
+                    item
+                    xs={12}
+                    md={6}
+                    height={485}
+                    marginBottom={2}
+                    sx={{
+                      width: { xs: "100%" },
+                    }}
+                  >
                     <HeaderCard {...post.attributes} withImage={true} />
                   </Grid>
                 ))}
               </Grid>
             </Grid>
-            <Grid item xs={3.2}>
+            <Grid item lg={3.2} xs={12}>
               <Typography component="h3" variant="h3">
                 <Typography
                   component="span"

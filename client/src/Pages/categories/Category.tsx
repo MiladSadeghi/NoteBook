@@ -56,7 +56,7 @@ function Category() {
         <Grid container justifyContent="center" spacing={4}>
           {categoriesContent.map(({ category, icon, link }: any) => {
             return (
-              <Grid item xs={3} key={category}>
+              <Grid item xs={12} sm={6} md={3} key={category}>
                 <Box
                   px={6}
                   py={4.1}

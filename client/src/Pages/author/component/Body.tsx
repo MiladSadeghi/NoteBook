@@ -27,7 +27,7 @@ function Body(data: any) {
         </Typography>
         <Grid container spacing={4} rowSpacing={7}>
           {data.articles.data.map((item: any, index: number) => (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <PostCard {...item.attributes} />
             </Grid>
           ))}

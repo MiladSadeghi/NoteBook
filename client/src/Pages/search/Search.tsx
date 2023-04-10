@@ -25,8 +25,6 @@ function Search() {
     return null;
   }
 
-  console.log(data);
-
   if (data.articles.data.length === 0) {
     navigate("/404");
   }

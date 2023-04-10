@@ -18,7 +18,12 @@ function AccordionTab({
     <Accordion
       expanded={expanded === `panel${tab}`}
       onChange={handleChange(`panel${tab}`)}
-      sx={{ width: "50%", boxShadow: "none", mb: 2, ":before": { opacity: 0 } }}
+      sx={{
+        width: { xs: "100%", sm: "70%", md: "50%" },
+        boxShadow: "none",
+        mb: 2,
+        ":before": { opacity: 0 },
+      }}
     >
       <AccordionSummary
         expandIcon={

@@ -27,7 +27,7 @@ function BodyCard({
   );
   return (
     <Grid container item xs={12} mb={6} spacing={4}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={4}>
         <Box
           component="img"
           src={`${process.env.REACT_APP_BACKEND_ADDRESS}${cover.data.attributes.url}`}
@@ -36,7 +36,7 @@ function BodyCard({
           sx={{ background: "#D9D9D9", borderRadius: 1, objectFit: "cover" }}
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={7}>
         <Typography
           component="h6"
           variant="h6"

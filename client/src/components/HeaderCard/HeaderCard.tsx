@@ -22,7 +22,9 @@ function HeaderCard({
       component="div"
       display="flex"
       flexDirection="column"
-      width={width ? width : 431}
+      sx={{
+        width: { xs: "95%", md: width ? width : 411 },
+      }}
     >
       <Typography
         component="h6"
@@ -64,10 +66,13 @@ function HeaderCard({
         <Box
           component="img"
           src={`${process.env.REACT_APP_BACKEND_ADDRESS}${cover.data.attributes.url}`}
-          width="100%"
           height="229px"
           mb={3}
-          sx={{ background: "rgba(217, 217, 217, 1)", borderRadius: 1.5 }}
+          sx={{
+            background: "rgba(217, 217, 217, 1)",
+            borderRadius: 1.5,
+            width: { xs: "95%", sm: "80%", md: "100%" },
+          }}
         />
       )}
       <Box component="div" display="flex" alignItems="center">

@@ -29,7 +29,7 @@ function Body({ authorsInformation }: { authorsInformation: any }) {
         </Typography>
         <Grid container spacing={5} mb={12.5}>
           {authorsInformation.map((author: any, index: number) => (
-            <Grid item xs={6} key={index}>
+            <Grid item md={6} key={index}>
               <Box
                 display="flex"
                 mx="auto"

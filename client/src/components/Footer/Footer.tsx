@@ -10,8 +10,8 @@ function Footer() {
   return (
     <footer style={{ background: "rgba(242, 248, 247, 1)" }}>
       <Container maxWidth="xl">
-        <Grid container py={12}>
-          <Grid item xs={3}>
+        <Grid container py={12} spacing={3}>
+          <Grid item md={3} sm={6} xs={12}>
             <Typography component="h1" variant="h1" display="flex" mb={3}>
               <Typography
                 component="span"
@@ -55,7 +55,7 @@ function Footer() {
               Riker
             </Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item md={3} sm={6} xs={12}>
             <Typography component="h6" fontSize="17px" fontWeight={600} mb={3}>
               Blogs
             </Typography>
@@ -79,7 +79,7 @@ function Footer() {
               <li>Business</li>
             </Box>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item md={3} sm={6} xs={12}>
             <Typography component="h6" fontSize="17px" fontWeight={600} mb={3}>
               Quick Links
             </Typography>
@@ -102,7 +102,7 @@ function Footer() {
               <li>Privacy Policy</li>
             </Box>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item md={3} sm={6} xs={12}>
             <Typography component="h6" fontSize="17px" fontWeight={600} mb={3}>
               Subscribe for newsletter
             </Typography>

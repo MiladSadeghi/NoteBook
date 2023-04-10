@@ -20,7 +20,13 @@ function HomePagination({ homeContent, setHomeContent }: any) {
   };
 
   return (
-    <Box width="100%" display="flex" justifyContent="center" mt={5}>
+    <Box
+      width="100%"
+      display="flex"
+      flexWrap={"wrap"}
+      justifyContent="center"
+      mt={5}
+    >
       <Button
         variant={page === 4 ? "outlined" : "contained"}
         disabled={page === 4 ? true : false}

@@ -12,7 +12,7 @@ function Header({ ...authorInformation }: any) {
     <Box pt={18} pb={10} sx={{ background: "rgba(242, 248, 247, 1)" }}>
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid item xs={5}>
+          <Grid item xs={12} sm={5}>
             <Box
               component="img"
               src={`${process.env.REACT_APP_BACKEND_ADDRESS}${avatar.data.attributes.url}`}
@@ -22,7 +22,7 @@ function Header({ ...authorInformation }: any) {
               sx={{ objectFit: "contain" }}
             />
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={12} sm={7}>
             <Typography
               component="h2"
               variant="h2"

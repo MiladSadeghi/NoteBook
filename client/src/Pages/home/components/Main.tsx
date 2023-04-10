@@ -7,10 +7,10 @@ function Main() {
   return (
     <Container maxWidth="xl" sx={{ marginBottom: "100px" }}>
       <Grid container spacing={6} mt={10}>
-        <Grid item xs={8.8}>
+        <Grid item md={7} lg={8.8}>
           <Body />
         </Grid>
-        <Grid item xs={3.2}>
+        <Grid item md={4} lg={3.2}>
           <Aside />
         </Grid>
       </Grid>

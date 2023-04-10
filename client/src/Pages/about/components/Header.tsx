@@ -75,10 +75,10 @@ function Header() {
           </Typography>
           Featured On
         </Typography>
-        <Grid container columns={15}>
+        <Grid container columns={15} spacing={3} justifyContent="center">
           {[Grammarly, Unsplash, Wordpress, Medium, Blogger].map(
             (image: any, index: number) => (
-              <Grid item xs={3} key={index}>
+              <Grid item xs={12} sm={5} lg={3} key={index}>
                 <img src={image} alt="featured-websites" />
               </Grid>
             )
