@@ -8,6 +8,7 @@ import Input from "./components/Input";
 import Textarea from "./components/Textarea";
 
 function Contact() {
+  document.title = "NoteBook - Contact us";
   return (
     <Container maxWidth="xl" sx={{ pt: 8, pb: 10 }}>
       <Grid container spacing={3}>

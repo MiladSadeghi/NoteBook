@@ -3,6 +3,7 @@ import { Box, Container, Typography } from "@mui/material";
 import { useState } from "react";
 
 function Faq() {
+  document.title = "NoteBook - Faq";
   const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChange =

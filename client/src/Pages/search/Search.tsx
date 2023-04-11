@@ -12,6 +12,7 @@ function Search() {
   const { data, loading } = useQuery(SEARCH_ARTICLES, {
     variables: { title: params.query || "", category: params.category || "" },
   });
+  document.title = `NoteBook - ${params.query || params.category}`;
 
   useEffect(() => {
     if (!params.query && !params.category) {

@@ -5,6 +5,7 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 function NotFound() {
+  document.title = "NoteBook - Not Found";
   return (
     <Container maxWidth="xl" sx={{ mt: "64px", py: "100px" }}>
       <Typography

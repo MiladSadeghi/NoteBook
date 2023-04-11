@@ -7,6 +7,7 @@ import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 function Header({ ...authorInformation }: any) {
   const { name, avatar, description, quote, quoteDescription } =
     authorInformation;
+  document.title = `NoteBook - ${name}`;
 
   return (
     <Box pt={18} pb={10} sx={{ background: "rgba(242, 248, 247, 1)" }}>

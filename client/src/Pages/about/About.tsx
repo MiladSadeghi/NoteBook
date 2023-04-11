@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_AUTHORS } from "@/graphql/queries";
 
 function About() {
+  document.title = "NoteBook - About us";
   const { data, loading } = useQuery(GET_AUTHORS);
 
   if (loading) {

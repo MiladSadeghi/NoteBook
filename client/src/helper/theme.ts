@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
 const theme = createTheme({
   typography: {
+    fontFamily: '"Noto Sans", Roboto, Helvetica Neue, Arial',
     h1: {
       fontSize: "27px",
       lineHeight: "140%",

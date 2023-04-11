@@ -15,6 +15,7 @@ function Body({
   articleInformation: any;
   articleID: any;
 }) {
+  document.title = `NoteBook - ${articleInformation.title}`;
   return (
     <div>
       <Typography

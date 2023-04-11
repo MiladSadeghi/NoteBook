@@ -6,6 +6,7 @@ import { GET_AUTHOR } from "@/graphql/queries";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Author() {
+  document.title = "loading...";
   const { slug } = useParams();
   const { data, loading } = useQuery(GET_AUTHOR, {
     variables: { slug },

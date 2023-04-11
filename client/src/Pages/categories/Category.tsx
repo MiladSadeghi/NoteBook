@@ -9,6 +9,7 @@ import { ReactComponent as Health } from "@/images/health.svg";
 import { useNavigate } from "react-router-dom";
 
 function Category() {
+  document.title = "NoteBook - Categories";
   const categoriesContent = [
     {
       category: "environment & nature",

@@ -7,6 +7,7 @@ import Aside from "../home/components/Aside";
 import Body from "./components/Body";
 
 function Article() {
+  document.title = "loading...";
   const { slug } = useParams();
   const { data, loading } = useQuery(GET_ARTICLE, {
     variables: { slug },
